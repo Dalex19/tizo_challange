@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import 'package:tizo_challange/features/feed/data/post_services.dart';
+import 'package:tizo_challange/features/feed/data/services/post_services.dart';
 
 class PostController extends GetxController {
   final PostServices _postServices = PostServices();

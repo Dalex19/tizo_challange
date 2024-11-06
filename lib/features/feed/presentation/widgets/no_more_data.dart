@@ -11,7 +11,10 @@ class NoMoreData extends StatelessWidget {
         padding: const EdgeInsets.only(bottom: 10),
         child: TextButton(
           onPressed: scrollToTop,
-          child: const Text("No hay más posts para mostrar"),
+          child: const Text(
+            "No hay más posts para mostrar, tap para volver arriba",
+            textAlign: TextAlign.center,
+          ),
         ),
       ),
     );

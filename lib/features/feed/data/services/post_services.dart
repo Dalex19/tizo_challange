@@ -1,4 +1,4 @@
-import 'package:tizo_challange/features/feed/data/post_model.dart';
+import 'package:tizo_challange/features/feed/data/models/post_model.dart';
 import 'package:tizo_challange/shared/api/api_service.dart';
 
 class PostServices extends ApiService {

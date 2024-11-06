@@ -1,10 +1,3 @@
-// class ApiEndpoints {
-//   static const String baseUrl = "https://jsonplaceholder.typicode.com/";
-
-//   static String get users => "$baseUrl/users";
-//   static String get posts => "$baseUrl/posts";
-  
-// }
 
 import 'package:dio/dio.dart';
 
