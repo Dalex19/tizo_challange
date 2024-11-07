@@ -8,12 +8,13 @@ import 'package:tizo_challange/features/postsaved/data/posts_cache.dart';
 import 'package:tizo_challange/shared/routes/app_routes.dart';
 
 void main() async {
-  await Hive.initFlutter();
+   WidgetsFlutterBinding.ensureInitialized();
 
+  await Hive.initFlutter();
   Hive.registerAdapter(PostsCacheAdapter());
+  NetworkInjectionDependecy.init();
 
   runApp(const MyApp());
-  NetworkInjectionDependecy.init();
 }
 
 class MyApp extends StatelessWidget {
