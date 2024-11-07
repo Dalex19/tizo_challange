@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 class NetworkController extends GetxController {
   final Connectivity _connectivity = Connectivity();
+  var isConnected = false.obs;
 
   @override
   void onInit() {
@@ -13,17 +14,18 @@ class NetworkController extends GetxController {
 
   void _updateConnectionStatus(List<ConnectivityResult> connectivityResult) {
     if (connectivityResult.contains(ConnectivityResult.none)) {
+      isConnected.value = false;
       Get.rawSnackbar(
         messageText: const Text(
           'Por favor, revisa tu conexión.',
           style: TextStyle(color: Colors.white),
         ),
         isDismissible: false,
-        duration: const Duration(days: 1),
+        duration: const Duration(seconds: 4),
         backgroundColor: Colors.red[400]!,
       );
-      Get.offNamed("/local");
     } else {
+      isConnected.value = true;
       if (Get.isSnackbarOpen) {
         Get.closeCurrentSnackbar();
       }
