@@ -40,7 +40,7 @@ class PostController extends GetxController {
         page++;
       }
     } catch (e) {
-      Get.snackbar("Error", "No se pudieron cargar los posts");
+      Get.snackbar("Error", e.toString());
     } finally {
       isLoading.value = false;
     }

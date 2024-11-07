@@ -1,6 +1,6 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tizo_challange/shared/global_utils.dart';
 
 class NetworkController extends GetxController {
   final Connectivity _connectivity = Connectivity();
@@ -15,15 +15,7 @@ class NetworkController extends GetxController {
   void _updateConnectionStatus(List<ConnectivityResult> connectivityResult) {
     if (connectivityResult.contains(ConnectivityResult.none)) {
       isConnected.value = false;
-      Get.rawSnackbar(
-        messageText: const Text(
-          'Por favor, revisa tu conexión.',
-          style: TextStyle(color: Colors.white),
-        ),
-        isDismissible: false,
-        duration: const Duration(seconds: 4),
-        backgroundColor: Colors.red[400]!,
-      );
+      showSnackBarNetwork(message:  "Por favor, revisa tu conexión.");
     } else {
       isConnected.value = true;
       if (Get.isSnackbarOpen) {

@@ -15,7 +15,7 @@ class CommentController extends GetxController {
       final response = await _commentsServices.getComments(postId);
       comments.addAll(response);
     } catch (e) {
-      Get.snackbar("Error", "No se pudieron cargar los comentarios");
+      Get.snackbar("Error", e.toString());
     } finally {
       isLoading.value = false;
     }
