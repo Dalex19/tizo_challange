@@ -90,7 +90,7 @@ Sigue estos pasos para instalar y ejecutar el proyecto en tu máquina local:
 1. **Clona el repositorio**:
 
    ```bash
-   git clone https://github.com/tu_usuario/tu_repositorio.git
+   git clone https://github.com/Dalex19/tizo_challange.git
 
    ```
 
