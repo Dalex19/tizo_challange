@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:tizo_challange/features/postsaved/state/post_cache_controller.dart';
+import 'package:tizo_challange/features/post_saved/controller/post_cache_controller.dart';
 import 'package:tizo_challange/shared/widgets/my_text_icon.dart';
 
 class SaveLocalPostBtn extends StatefulWidget {

@@ -5,7 +5,7 @@ import 'package:tizo_challange/features/feed/data/models/post_model.dart';
 import 'package:tizo_challange/features/feed/presentation/widgets/card_post.dart';
 import 'package:tizo_challange/features/feed/presentation/widgets/card_shimmer.dart';
 import 'package:tizo_challange/features/feed/presentation/widgets/comment_box.dart';
-import 'package:tizo_challange/features/feed/state/comments_controller.dart';
+import 'package:tizo_challange/features/feed/controllers/comments_controller.dart';
 import 'package:tizo_challange/shared/styles/global_styles.dart';
 
 class Post extends StatelessWidget {

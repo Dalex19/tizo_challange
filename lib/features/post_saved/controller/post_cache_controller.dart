@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 
-import 'package:tizo_challange/features/postsaved/data/posts_cache.dart';
+import 'package:tizo_challange/features/post_saved/data/posts_cache.dart';
 
 class PostCacheController extends GetxController {
   var posts = <PostsCache>[].obs;

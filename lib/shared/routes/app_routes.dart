@@ -1,6 +1,6 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:tizo_challange/features/home/home.dart';
-import 'package:tizo_challange/features/postsaved/post_saved.dart';
+import 'package:tizo_challange/features/post_saved/post_saved.dart';
 import 'package:tizo_challange/features/splashscreen/splash_screen.dart';
 
 class AppRoutes {

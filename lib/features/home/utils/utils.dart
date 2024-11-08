@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:tizo_challange/features/feed/feed.dart';
-import 'package:tizo_challange/features/postsaved/post_saved.dart';
+import 'package:tizo_challange/features/post_saved/post_saved.dart';
 import 'package:tizo_challange/features/profile/profile.dart';
 import 'package:tizo_challange/shared/styles/global_styles.dart';
 

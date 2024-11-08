@@ -4,7 +4,7 @@ import 'package:tizo_challange/features/feed/utils/utils.dart';
 import 'package:tizo_challange/features/profile/data/user_model.dart';
 import 'package:tizo_challange/features/profile/presentation/widgets/label_with_expansion_panel.dart';
 
-import 'package:tizo_challange/features/profile/state/profile_controller.dart';
+import 'package:tizo_challange/features/profile/controller/profile_controller.dart';
 import 'package:tizo_challange/shared/global_utils.dart';
 import 'package:tizo_challange/shared/styles/global_styles.dart';
 

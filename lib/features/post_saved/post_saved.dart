@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:tizo_challange/features/postsaved/presentation/no_post_yet.dart';
+import 'package:tizo_challange/features/post_saved/presentation/no_post_yet.dart';
 
-import 'package:tizo_challange/features/postsaved/state/post_cache_controller.dart';
+import 'package:tizo_challange/features/post_saved/controller/post_cache_controller.dart';
 
 import 'package:tizo_challange/shared/styles/global_styles.dart';
 

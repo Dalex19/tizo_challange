@@ -6,12 +6,12 @@ import 'package:tizo_challange/features/feed/presentation/widgets/card_post.dart
 import 'package:tizo_challange/features/feed/presentation/widgets/card_shimmer.dart';
 import 'package:tizo_challange/features/feed/presentation/widgets/no_more_data.dart';
 import 'package:tizo_challange/features/feed/presentation/widgets/progress_indicator.dart';
-import 'package:tizo_challange/features/feed/state/post_controller.dart';
+import 'package:tizo_challange/features/feed/controllers/post_controller.dart';
 
 import 'package:tizo_challange/features/feed/data/models/post_model.dart';
 import 'package:tizo_challange/features/feed/utils/utils.dart';
 
-import 'package:tizo_challange/features/postsaved/state/post_cache_controller.dart';
+import 'package:tizo_challange/features/post_saved/controller/post_cache_controller.dart';
 
 import 'package:tizo_challange/shared/styles/global_styles.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tizo_challange/features/feed/data/models/post_model.dart';
 import 'package:tizo_challange/features/feed/presentation/widgets/staditics_btns.dart';
-import 'package:tizo_challange/features/postsaved/presentation/save_local_post_btn.dart';
+import 'package:tizo_challange/features/post_saved/presentation/save_local_post_btn.dart';
 import 'package:tizo_challange/shared/global_utils.dart';
 
 import 'package:tizo_challange/shared/styles/global_styles.dart';

@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:tizo_challange/features/checkconnection/network_service.dart';
+import 'package:tizo_challange/features/connection_check/network_service.dart';
 import 'package:tizo_challange/features/profile/data/user_model.dart';
 import 'package:tizo_challange/features/profile/data/user_service.dart';
 

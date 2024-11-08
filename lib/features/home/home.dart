@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
-import 'package:tizo_challange/features/home/home_controller.dart';
+import 'package:tizo_challange/features/home/controller/home_controller.dart';
 
 import 'package:tizo_challange/features/home/utils/utils.dart';
-import 'package:tizo_challange/features/postsaved/state/post_cache_controller.dart';
+import 'package:tizo_challange/features/post_saved/controller/post_cache_controller.dart';
 
 class Home extends StatelessWidget {
   Home({super.key});
