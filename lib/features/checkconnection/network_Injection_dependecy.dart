@@ -1,9 +1,8 @@
 import 'package:get/get.dart';
-
-import 'package:tizo_challange/features/checkconnection/network_controller.dart';
+import 'package:tizo_challange/features/checkconnection/network_service.dart';
 
 class NetworkInjectionDependecy {
-  static void init() {
-    Get.put<NetworkController>(NetworkController(), permanent: true);
+  static Future<void> init() async {
+    await Get.putAsync<NetworkService>(() async => NetworkService().init());
   }
 }

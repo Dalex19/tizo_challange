@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 import 'package:hive_flutter/adapters.dart';
-import 'package:tizo_challange/features/checkconnection/network_Injection_dependecy.dart';
+import 'package:tizo_challange/features/checkconnection/network_injection_dependecy.dart';
 import 'package:tizo_challange/features/postsaved/data/posts_cache.dart';
 
 import 'package:tizo_challange/shared/routes/app_routes.dart';
 
 void main() async {
-   WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
 
   await Hive.initFlutter();
   Hive.registerAdapter(PostsCacheAdapter());
-  NetworkInjectionDependecy.init();
+  await NetworkInjectionDependecy.init();
 
   runApp(const MyApp());
 }

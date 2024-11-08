@@ -1,10 +1,12 @@
 import 'package:get/get.dart';
-import 'package:tizo_challange/features/checkconnection/network_controller.dart';
+import 'package:tizo_challange/features/checkconnection/network_service.dart';
 
 import 'package:tizo_challange/features/feed/data/services/post_services.dart';
 
 class PostController extends GetxController {
   final PostServices _postServices = PostServices();
+  final NetworkService _networkService = Get.find<NetworkService>();
+
   var posts = <dynamic>[].obs;
   var isLoading = true.obs;
   var isFetchingMore = false.obs;
@@ -14,14 +16,12 @@ class PostController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-     // Verifica el estado actual de la conexión cuando se inicia el controlador
-    if (Get.find<NetworkController>().isConnected.value) {
-      fetchPosts();
-    }
+    //Se ejecuta solo una vez
+    fetchPosts();
 
-    // Observar cambios en la conectividad
-    ever(Get.find<NetworkController>().isConnected, (isConnected) {
-      if (isConnected) {
+    //Se ejecuta, solo si detecta cambios
+    ever(_networkService.isConnected, (bool? isConnected) {
+      if (isConnected == true) {
         fetchPosts();
       }
     });

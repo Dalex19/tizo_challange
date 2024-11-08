@@ -2,20 +2,19 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:get/get.dart';
 import 'package:tizo_challange/shared/global_utils.dart';
 
-class NetworkController extends GetxController {
+class NetworkService extends GetxService {
   final Connectivity _connectivity = Connectivity();
-  var isConnected = false.obs;
+  var isConnected = Rxn<bool>();
 
-  @override
-  void onInit() {
-    super.onInit();
+  Future<NetworkService> init() async {
     _connectivity.onConnectivityChanged.listen(_updateConnectionStatus);
+    return this;
   }
 
   void _updateConnectionStatus(List<ConnectivityResult> connectivityResult) {
     if (connectivityResult.contains(ConnectivityResult.none)) {
       isConnected.value = false;
-      showSnackBarNetwork(message:  "Por favor, revisa tu conexión.");
+      showSnackBarNetwork(message: "Por favor, revisa tu conexión.");
     } else {
       isConnected.value = true;
       if (Get.isSnackbarOpen) {
