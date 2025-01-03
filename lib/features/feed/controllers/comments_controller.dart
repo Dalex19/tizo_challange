@@ -3,7 +3,6 @@ import 'package:tizo_challange/features/feed/data/services/comments_services.dar
 import 'package:tizo_challange/features/feed/data/models/comments_model.dart';
 
 class CommentController extends GetxController {
-  
   final CommentsServices _commentsServices = CommentsServices();
 
   var comments = <CommentsModel>[].obs;
@@ -15,7 +14,7 @@ class CommentController extends GetxController {
       final response = await _commentsServices.getComments(postId);
       comments.addAll(response);
     } catch (e) {
-      Get.snackbar("Errfsdfsdfdasddsor", e.toString());
+      Get.snackbar("Errfsdfsdfdasddso asdasdajkshdklfsadsfr", e.toString());
     } finally {
       isLoading.value = false;
     }
