@@ -18,6 +18,13 @@ jobs:
         with:
           flutter-version: '3.13.0'
           flutter-channel: 'stable'
+        
+      - name: Install Dart SDK 3.5.3
+        run: |
+          wget https://storage.googleapis.com/download.dartlang.org/dart-archive/channels/stable/release/3.5.3/sdk/dartsdk-macos-x64-release.zip
+          unzip dartsdk-macos-x64-release.zip
+          mv dart-sdk /usr/local/lib/dart
+          echo "/usr/local/lib/dart
 
       - name: Cache Flutter dependencies
         uses: actions/cache@v3
