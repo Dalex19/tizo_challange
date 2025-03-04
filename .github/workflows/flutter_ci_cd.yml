@@ -1,0 +1,47 @@
+name: Flutter CI/CD with Fastlane
+
+on:
+  push:
+    branches:
+      - main  # O cualquier otra rama en la que quieras ejecutar este flujo de trabajo
+
+jobs:
+  build:
+    runs-on: macos-latest  # Usamos macOS porque para iOS se necesita macOS
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v3
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.5.3'
+
+      - name: Cache Flutter dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.pub-cache
+          key: ${{ runner.os }}-flutter-${{ hashFiles('**/pubspec.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-flutter-
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      # Modificar la versión de pubspec.yaml
+      - name: Increment build version to odd number
+        run: |
+          current_version=$(grep -Eo 'version: [0-9]+\.[0-9]+\.[0-9]+\+[0-9]+' pubspec.yaml | sed 's/version: //')
+          version_number=$(echo $current_version | cut -d '+' -f1)
+          build_number=$(echo $current_version | cut -d '+' -f2)
+          
+          if [ $(($build_number % 2)) -eq 0 ]; then
+            build_number=$((build_number + 1))
+          else
+            build_number=$((build_number + 2))
+          fi
+          
+          new_version="${version_number}+${build_number}"
+          sed -i "" "s/version: .*/version: ${new_version}/" pubspec.yaml
+          echo "Updated version to ${new_version} in pubspec.yaml"
