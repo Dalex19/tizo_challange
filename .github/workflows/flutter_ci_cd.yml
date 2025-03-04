@@ -41,4 +41,4 @@ jobs:
           name: Releases
           path: |
             build/app/outputs/bundle/release/app-release.aab  
-            build/ios/ipa/*.ipa 
+            build/ios/archive/*.xcarchive 
