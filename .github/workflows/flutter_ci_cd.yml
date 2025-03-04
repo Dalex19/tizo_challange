@@ -1,40 +1,44 @@
-name: Flutter CI/CD with Fastlane
-
+name: Build to AppTester and Testflight
 on:
   push:
     branches:
-      - main  
+      - main
 
 jobs:
-  build:
-    runs-on: macos-latest 
-
+  main:
+    runs-on: macos-latest
     steps:
-      - name: Check out the repository
-        uses: actions/checkout@v3
+      - name: Clone repository
+        uses: actions/checkout@v4
+
+      - name: Setup java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: "17"
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.4'
           channel: 'stable'
+          flutter-version: '3.24.4'
 
-      - name: Install dependencies
-        run: flutter pub get
-
-      
-      - name: Increment build version to odd number
+      - name: Get Flutter packages
         run: |
-          current_version=$(grep -Eo 'version: [0-9]+\.[0-9]+\.[0-9]+\+[0-9]+' pubspec.yaml | sed 's/version: //')
-          version_number=$(echo $current_version | cut -d '+' -f1)
-          build_number=$(echo $current_version | cut -d '+' -f2)
-          
-          if [ $(($build_number % 2)) -eq 0 ]; then
-            build_number=$((build_number + 1))
-          else
-            build_number=$((build_number + 2))
-          fi
-          
-          new_version="${version_number}+${build_number}"
-          sed -i "" "s/version: .*/version: ${new_version}/" pubspec.yaml
-          echo "Updated version to ${new_version} in pubspec.yaml"
+          flutter pub get
+
+      - name: Build AppBundle
+        run: |
+          flutter build appbundle  
+
+      - name: Build IPA
+        run: |
+          flutter build ipa --no-codesign  
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: Releases
+          path: |
+            build/app/outputs/bundle/release/app-release.aab  
+            build/ios/ipa/*.ipa 
